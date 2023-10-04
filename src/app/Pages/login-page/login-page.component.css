@@ -1,0 +1,34 @@
+.example-spacer {
+  margin: 0 auto
+}
+
+.login {
+  margin: 0 auto;
+}
+
+.body {
+  height: calc(100vh - 64px);
+  padding-top: 15%;
+}
+
+.card {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.btn,
+.btn-success {
+  width: -webkit-fill-available;
+}
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    max-width: 350px;
+  }
+}

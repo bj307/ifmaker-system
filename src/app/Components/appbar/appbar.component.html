@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
+    </a>
+    <ul class="menuDash">
+      <li><a (click)="sair()"><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon></a></li>
+      <li><a href="/in/frequencia">Frequência</a></li>
+      <li><a href="#">Agenda</a></li>
+      <li><a href="#">Atualizações</a></li>
+      <li><a href="/in/projetos">Projetos</a></li>
+      <li><a href="/in/dashboard">Início</a></li>
+    </ul>
+
+    <div class="dropdown">
+      <button type="button" class="btn btn-secondary btn-sm btnMenu" data-bs-toggle="collapse"
+        data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"
+        (click)="openMenu()">
+        <mat-icon aria-hidden="false" fontIcon="menu" *ngIf="!menuVisible"></mat-icon>
+        <mat-icon aria-hidden="false" fontIcon="close" *ngIf="menuVisible"></mat-icon>
+      </button>
+    </div>
+
+  </div>
+</nav>
+<ul class="menuRes" *ngIf="menuVisible">
+  <li><a href="/in/dashboard">Início</a></li>
+  <li><a href="/in/projetos">Projetos</a></li>
+  <li><a href="#">Atualizações</a></li>
+  <li><a href="#">Agenda</a></li>
+  <li><a href="/in/frequencia">Frequência</a></li>
+  <li><a (click)="sair()"
+      style="display: flex; align-items: center; flex-direction: row; justify-content: center;"><mat-icon
+        aria-hidden="false" fontIcon="logout"></mat-icon>‎ ‎ Sair</a></li>
+</ul>

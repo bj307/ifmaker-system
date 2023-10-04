@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="login">Login</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="body">
+
+  <div class="card">
+    <div class="alert alert-danger" role="alert" *ngIf="erro">
+      {{alerta}}
+    </div>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email</label>
+          <input formControlName="email" id="email" type="email" class="form-control" id="exampleFormControlInput1"
+            placeholder="seu@email.com" [(ngModel)]="email">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Senha</label>
+          <input formControlName="senha" id="senha" type="password" class="form-control" id="exampleFormControlInput1"
+            placeholder="Sua senha" [(ngModel)]="senha">
+        </div>
+        <button type="submit" class="btn btn-success">Entrar</button>
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.content_toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu_toolbar{
+    display: flex;
+    display: null;
+    margin: 4%;
+}
+
+.menu_toolbar a{
+    text-decoration: none;
+    
+    color: black;
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.menu_toolbar a:hover{
+    background-color: rgba(255, 255, 255, 0.281);
+    border-radius: 10px;
+}
+
+.menu_toolbar li{
+    margin: 1vw;
+    list-style: none;
+}
+#logo{
+    width: 25%;
+    margin-left: 2%;
+}
+
+
+#menu_toolbar_mobile{
+    display: none;
+    margin: 4%;
+}
+
+@media screen and (max-width: 748px) {
+    .menu_toolbar{
+        display: none;
+    }
+    #menu_toolbar_mobile{
+        display: flex;
+        margin: 4%;
+    }
+    
+}

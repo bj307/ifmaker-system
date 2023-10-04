@@ -1,0 +1,116 @@
+.card {
+  min-width: calc(100% / 3);
+}
+
+.HelloUser {
+  margin-top: 15px;
+}
+
+@media (min-width: 999px) {
+  .projects {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 720px) {
+  .cardProject {
+      min-width: calc(calc(100% / 2) - 10px);
+  }
+}
+
+@media (max-width: 720px) {
+
+  .menuDash {
+    display: none;
+  }
+
+  .btnMenu {
+    display: flex;
+  }
+
+  .dropdown {
+    display: unset;
+  }
+
+  .projects .card {
+    min-width: -webkit-fill-available;
+  }
+
+  .containerProjects {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 360px) {}
+
+.containerCards {
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.containerProjects {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card-header,
+.card-body {
+  text-align: center;
+}
+
+.card-header {
+  border-bottom: unset;
+}
+
+.treeCards .containerCards .card .card-body {
+  padding: unset;
+  padding-top: 5px;
+}
+
+.treeCards .containerCards .card .card-body h1 {
+  font-weight: 500;
+}
+
+.projects h2 {
+  text-align: center;
+}
+
+.projects .card-footer {
+  border-top: unset;
+}
+
+.projects a {
+  text-decoration: none;
+}
+
+.projects a p {
+  margin-bottom: 0px;
+}
+
+.cardProject {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btnProject {
+  color: white;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  background-color: #198754;
+}
+
+.btnProject p {
+  font-size: 12px;
+}

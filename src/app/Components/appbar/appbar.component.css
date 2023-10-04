@@ -1,0 +1,72 @@
+.menuDash,
+.menuRes {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menuDash .material-icons {
+  font-size: 18px !important;
+}
+
+.menuDash .material-icons:hover {
+  cursor: pointer;
+}
+
+.menuRes {
+  background: #212529;
+}
+
+.menuDash li a,
+.menuRes li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.menuDash li {
+  float: right;
+}
+
+.menuDash li a:hover,
+.menuRes li a:hover {
+  font-weight: 500;
+}
+
+.btnMenu,
+.dropdown {
+  display: none;
+}
+
+@media (max-width: 720px) {
+
+  .menuDash {
+    display: none;
+  }
+
+  .btnMenu {
+    display: flex;
+  }
+
+  .dropdown {
+    display: unset;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .menuDash {
+    display: none;
+  }
+
+  .btnMenu {
+    display: flex;
+  }
+
+  .dropdown {
+    display: unset;
+  }
+}

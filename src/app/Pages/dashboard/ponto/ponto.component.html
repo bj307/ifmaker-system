@@ -1,0 +1,33 @@
+<app-appbar></app-appbar>
+
+<section class="ponto">
+
+  <div class="inputs">
+    <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[0]" id="otc-1"
+      (input)="onInput($event, 0)" required>
+    <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[1]" id="otc-2"
+      (input)="onInput($event, 1)" required>
+    <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[2]" id="otc-3"
+      (input)="onInput($event, 2)" required>
+    <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[3]" id="otc-4"
+      (input)="onInput($event, 3)" required>
+    <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[4]" id="otc-5"
+      (input)="onInput($event, 4)" required>
+    <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[5]" id="otc-6"
+      (input)="onInput($event, 5)" required>
+    <div class="alert alert-danger" role="alert" *ngIf="!codeValid">
+      Código incorreto ou expirado.
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="successMessage">
+      Frequência registrada.
+    </div>
+  </div>
+
+  <div class="registre">
+    <button type="button" class="btn btn-success" (click)="validarCodigo()">Validar</button>
+    <div class="circulo1"></div>
+    <div class="circulo2"></div>
+    <div class="circulo3"></div>
+  </div>
+
+</section>
