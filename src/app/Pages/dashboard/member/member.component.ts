@@ -16,6 +16,7 @@ export class MemberComponent implements OnInit {
     id: '',
     nome: '',
     email: '',
+    nivel_acesso: ''
   };
   ngOnInit(): void {
     this.menuVisible = false;
@@ -38,10 +39,12 @@ export class MemberComponent implements OnInit {
       const { jwtToken } = JSON.parse(sessao);
       this.userService.validarToken(jwtToken).subscribe(
         (res: any) => {
-          console.log(res);
           this.usuario!.id = res.id;
           this.usuario!.nome = res.nome;
           this.usuario!.email = res.email;
+          this.usuario!.nivel_acesso = res.nivel_acesso;
+          console.log(this.usuario);
+          this.verifyAccess();
         },
         (err) => {
           console.log(err);
@@ -50,5 +53,27 @@ export class MemberComponent implements OnInit {
         }
       );
     }
+  }
+
+  verifyAccess() {
+    
+    if (this.usuario.nivel_acesso === "admin") {
+      this.isAdmin();
+      
+    } else if (this.usuario.nivel_acesso === "member") {
+      this.isMember();
+      
+    } else {
+      console.log('not member');
+      // this.router.navigate(['/login']);
+    }
+  }
+
+  isAdmin() {
+    console.log('is admin');
+  }
+
+  isMember() {
+    console.log('is member');
   }
 }

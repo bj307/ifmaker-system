@@ -1,20 +1,29 @@
-<div class="content_toolbar">
-    <img id="logo" src="../../../assets/tempsnip2.png">
-    <ul class="menu_toolbar">
-        <a href=""><li>Projetos</li></a>
-        <a href=""><li>Membros</li></a>
-        <a href=""><li>Sobre</li></a>
-        <a href=""><li>Login</li></a>
-    </ul>
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href=" ">
+            <img src="..\..\assets\tempsnip2.png">
+        </a>
+        <ul class="menuDash">
+            <li><a href="#">Projetos</a></li>
+            <li><a href="#">Membros</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
 
-    <button id="menu_toolbar_mobile" mat-button [matMenuTriggerFor]="menu"> 
-        <mat-icon aria-hidden="false" aria-label="Menu" fontIcon="menu">
-    </mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item> <a href="">Projetos</a></button>
-        <button mat-menu-item> <a href="">Membros</a></button>
-        <button mat-menu-item> <a href="">Sobre</a></button>
-        <button mat-menu-item> <a href="">Login</a></button>
-    </mat-menu>
-</div>
+        <div class="dropdown">
+            <button type="button" class="btn btn-secondary btn-sm btnMenu" data-bs-toggle="collapse"
+                data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2"
+                (click)="openMenu()">
+                <mat-icon aria-hidden="false" fontIcon="menu" *ngIf="!menuVisible"></mat-icon>
+                <mat-icon aria-hidden="false" fontIcon="close" *ngIf="menuVisible"></mat-icon>
+            </button>
+        </div>
+
+    </div>
+</nav>
+<ul class="menuRes" *ngIf="menuVisible">
+    <li><a href="#">Projetos</a></li>
+    <li><a href="#">Membros</a></li>
+    <li><a href="#">Sobre</a></li>
+    <li><a href="login">Login</a></li>
+</ul>

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-
+  menuVisible = false;
+  ngOnInit(): void {
+    this.menuVisible = false;
+  }
+  openMenu() {
+    if (this.menuVisible) {
+      this.menuVisible = false;
+    } else {
+      this.menuVisible = true;
+    }
+  }
 }

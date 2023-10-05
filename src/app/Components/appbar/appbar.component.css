@@ -15,6 +15,7 @@
 }
 
 .menuRes {
+  display: none;
   background: #212529;
 }
 
@@ -54,6 +55,10 @@
   .dropdown {
     display: unset;
   }
+
+  .menuRes {
+    display: block;
+  }
 }
 
 @media (max-width: 360px) {
@@ -68,5 +73,9 @@
 
   .dropdown {
     display: unset;
+  }
+
+  .menuRes {
+    display: block;
   }
 }
