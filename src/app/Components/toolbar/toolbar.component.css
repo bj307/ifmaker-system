@@ -46,6 +46,16 @@
     display: none;
 }
 
+.btnMenu {
+    background: none;
+    border: none;
+    color: black;
+}
+
+.btnMenu:active {
+    background: none;
+}
+
 @media (max-width: 720px) {
 
     .menuRes{
