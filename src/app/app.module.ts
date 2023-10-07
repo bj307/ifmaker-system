@@ -15,8 +15,9 @@ import { MemberComponent } from './Pages/dashboard/member/member.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppbarComponent } from './Components/appbar/appbar.component';
 import { PontoComponent } from './Pages/dashboard/ponto/ponto.component';
+import { FooterComponent } from './Components/footer/footer.component';
 import { ProjetosComponent } from './Pages/dashboard/projetos/projetos.component';
-import { AdminComponent } from './Pages/dashboard/admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { AdminComponent } from './Pages/dashboard/admin/admin.component';
     PontoComponent,
     AppbarComponent,
     ProjetosComponent,
-    AdminComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

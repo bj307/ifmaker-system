@@ -4,11 +4,10 @@
       <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
     </a>
     <ul class="menuDash">
-      <li><a (click)="sair()"><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon></a></li>
-      <li><a href="/in/frequencia">Frequência</a></li>
+      <li><a href="/in/ponto">Ponto</a></li>
       <li><a href="#">Agenda</a></li>
       <li><a href="#">Atualizações</a></li>
-      <li><a href="/in/projetos">Projetos</a></li>
+      <li><a href="#">Projetos</a></li>
       <li><a href="/in/dashboard">Início</a></li>
     </ul>
 
@@ -24,12 +23,9 @@
   </div>
 </nav>
 <ul class="menuRes" *ngIf="menuVisible">
-  <li><a href="/in/dashboard">Início</a></li>
-  <li><a href="/in/projetos">Projetos</a></li>
+  <li><a href="#">Início</a></li>
+  <li><a href="#">Projetos</a></li>
   <li><a href="#">Atualizações</a></li>
   <li><a href="#">Agenda</a></li>
-  <li><a href="/in/frequencia">Frequência</a></li>
-  <li><a (click)="sair()"
-      style="display: flex; align-items: center; flex-direction: row; justify-content: center;" href="."><mat-icon
-        aria-hidden="false" fontIcon="logout"></mat-icon>‎ ‎ Sair</a></li>
+  <li><a href="#">Ponto</a></li>
 </ul>

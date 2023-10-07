@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appbar',
@@ -7,8 +6,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./appbar.component.css'],
 })
 export class AppbarComponent implements OnInit {
-  constructor(private router: Router) {}
-
   menuVisible = false;
   ngOnInit(): void {
     this.menuVisible = false;
@@ -19,10 +16,5 @@ export class AppbarComponent implements OnInit {
     } else {
       this.menuVisible = true;
     }
-  }
-
-  sair() {
-    sessionStorage.clear();
-    this.router.navigate(['/login']);
   }
 }
