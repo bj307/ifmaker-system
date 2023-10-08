@@ -16,10 +16,10 @@
     <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" [(ngModel)]="inputs[5]" id="otc-6"
       (input)="onInput($event, 5)" required>
     <div class="alert alert-danger" role="alert" *ngIf="!codeValid">
-      Código incorreto ou expirado.
+      Código incorreto ou expirado!
     </div>
     <div class="alert alert-success" role="alert" *ngIf="successMessage">
-      Frequência registrada.
+      Frequência registrada!
     </div>
   </div>
 
