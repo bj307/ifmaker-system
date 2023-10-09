@@ -20,6 +20,7 @@ import { AdminComponent } from './Pages/dashboard/admin/admin.component';
 import { AtualizacaoComponent } from './Pages/dashboard/atualizacao/atualizacao.component';
 import { AgendaComponent } from './Pages/dashboard/agenda/agenda.component';
 import { GerarTokenComponent } from './Pages/dashboard/gerar-token/gerar-token.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GerarTokenComponent } from './Pages/dashboard/gerar-token/gerar-token.c
     AtualizacaoComponent,
     AgendaComponent,
     GerarTokenComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
