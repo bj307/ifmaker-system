@@ -16,11 +16,14 @@ export class MemberComponent implements OnInit {
     id: '',
     nome: '',
     email: '',
-    nivel_acesso: ''
+    nivel_acesso: '',
   };
   ngOnInit(): void {
-    this.menuVisible = false;
     this.validaToken();
+    const sessao = sessionStorage.getItem('usuario_logado');
+    const { nome } = JSON.parse(sessao!);
+    this.usuario!.nome = nome;
+    this.menuVisible = false;
   }
 
   openMenu() {
@@ -43,7 +46,6 @@ export class MemberComponent implements OnInit {
           this.usuario!.nome = res.nome;
           this.usuario!.email = res.email;
           this.usuario!.nivel_acesso = res.nivel_acesso;
-          console.log(this.usuario);
           this.verifyAccess();
         },
         (err) => {
@@ -56,16 +58,12 @@ export class MemberComponent implements OnInit {
   }
 
   verifyAccess() {
-    
-    if (this.usuario.nivel_acesso === "admin") {
+    if (this.usuario.nivel_acesso === 'admin') {
       this.isAdmin();
-      
-    } else if (this.usuario.nivel_acesso === "member") {
+    } else if (this.usuario.nivel_acesso === 'member') {
       this.isMember();
-      
     } else {
-      console.log('not member');
-      // this.router.navigate(['/login']);
+      this.router.navigate(['/login']);
     }
   }
 

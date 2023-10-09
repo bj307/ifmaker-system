@@ -17,6 +17,9 @@ import { AppbarComponent } from './Components/appbar/appbar.component';
 import { PontoComponent } from './Pages/dashboard/ponto/ponto.component';
 import { ProjetosComponent } from './Pages/dashboard/projetos/projetos.component';
 import { AdminComponent } from './Pages/dashboard/admin/admin.component';
+import { AtualizacaoComponent } from './Pages/dashboard/atualizacao/atualizacao.component';
+import { AgendaComponent } from './Pages/dashboard/agenda/agenda.component';
+import { GerarTokenComponent } from './Pages/dashboard/gerar-token/gerar-token.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { AdminComponent } from './Pages/dashboard/admin/admin.component';
     AppbarComponent,
     ProjetosComponent,
     AdminComponent,
+    AtualizacaoComponent,
+    AgendaComponent,
+    GerarTokenComponent,
   ],
   imports: [
     BrowserModule,

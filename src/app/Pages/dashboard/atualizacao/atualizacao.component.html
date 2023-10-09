@@ -1,0 +1,22 @@
+<section class="atualizacao">
+  <div class="container">
+    <h2>Inserir atualização</h2>
+  </div>
+  <div class="container containerAtualizacao">
+    <div class="insert card">
+      <label for="exampleFormControlTextarea1" class="form-label">Selecione o projeto</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="projeto">
+        <option *ngFor="let projeto of projetos" [value]="projeto.id">{{projeto.nome}}</option>
+      </select>
+      <div class="mb-3" style="margin-top: 20px;">
+        <label for="exampleFormControlTextarea1" class="form-label">Detalhes da atualização</label>
+        <textarea [(ngModel)]="detalhes" class="form-control" id="exampleFormControlTextarea1" rows="3"
+          style="resize: unset;"></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-success" style="margin-top: 5px; width: -webkit-fill-available;"
+      (click)="salvar()">Inserir</button>
+
+
+  </div>
+</section>
