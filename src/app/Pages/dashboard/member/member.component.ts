@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUsuario } from 'src/app/interfaces/IUsuario';
+import { ProjetosService } from 'src/app/services/projetos.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,8 +18,12 @@ export class MemberComponent implements OnInit {
     nome: '',
     email: '',
     nivel_acesso: '',
+    num_projetos: 0,
+    status: '',
   };
+
   ngOnInit(): void {
+    this.lerDados();
     this.validaToken();
     const sessao = sessionStorage.getItem('usuario_logado');
     const { nome } = JSON.parse(sessao!);
@@ -46,6 +51,7 @@ export class MemberComponent implements OnInit {
           this.usuario!.nome = res.nome;
           this.usuario!.email = res.email;
           this.usuario!.nivel_acesso = res.nivel_acesso;
+
           this.verifyAccess();
         },
         (err) => {
@@ -55,6 +61,14 @@ export class MemberComponent implements OnInit {
         }
       );
     }
+  }
+
+  lerDados() {
+    const projetos = sessionStorage.getItem('projetos');
+    const status = sessionStorage.getItem('status');
+    this.usuario.status = status!;
+    console.log(projetos);
+    this.usuario.num_projetos = Number(projetos);
   }
 
   verifyAccess() {

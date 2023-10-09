@@ -13,6 +13,6 @@ export class LoginService {
   private LOCAL = 'http://localhost:3000/';
 
   public login(usuario: ILogin) {
-    return this.http.post(`${this.API}sessao`, usuario);
+    return this.http.post(`${this.LOCAL}sessao`, usuario);
   }
 }

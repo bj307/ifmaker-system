@@ -29,4 +29,8 @@ export class UserService {
     };
     return this.http.post(`${this.API}usuario/verify`, { headers });
   }
+
+  public statusFrequencia(id: string) {
+    return this.http.get(`${this.LOCAL}ponto/status/${id}`);
+  }
 }
