@@ -11,11 +11,9 @@ export class ProjetosService {
   private API = environment.API;
   private LOCAL = 'http://localhost:3000/';
 
-  public buscarMeusProjetos(token: string) {
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-    return this.http.get(`${this.API}projeto/meus-projetos`, { headers });
+  public buscarMeusProjetos(id: string) {
+
+    return this.http.get(`${this.API}projeto/meus-projetos${id}`);
   }
 
   public buscarTodosProjetos() {}
