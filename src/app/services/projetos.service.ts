@@ -15,7 +15,7 @@ export class ProjetosService {
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    return this.http.get(`${this.LOCAL}projeto/meus-projetos`, { headers });
+    return this.http.get(`${this.API}projeto/meus-projetos`, { headers });
   }
 
   public buscarTodosProjetos() {}

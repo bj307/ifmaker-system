@@ -24,6 +24,7 @@ export class MemberComponent implements OnInit {
 
   ngOnInit(): void {
     this.lerDados();
+    
     this.validaToken();
     const sessao = sessionStorage.getItem('usuario_logado');
     const { nome } = JSON.parse(sessao!);
@@ -66,9 +67,14 @@ export class MemberComponent implements OnInit {
   lerDados() {
     const projetos = sessionStorage.getItem('projetos');
     const status = sessionStorage.getItem('status');
-    this.usuario.status = status!;
-    console.log(projetos);
-    this.usuario.num_projetos = Number(projetos);
+    if(projetos == null || status == null) {
+      setTimeout(() => {
+        this.lerDados();
+      }, 100);
+    } else {
+      this.usuario.status = status!;
+      this.usuario.num_projetos = Number(projetos);
+    }
   }
 
   verifyAccess() {
@@ -82,10 +88,10 @@ export class MemberComponent implements OnInit {
   }
 
   isAdmin() {
-    console.log('is admin');
+    console.log('is admin 2');
   }
 
   isMember() {
-    console.log('is member');
+    console.log('is member 2');
   }
 }

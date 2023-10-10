@@ -89,12 +89,10 @@ export class AdminComponent implements OnInit {
 
   isAdmin() {
     this.userAdmin = true;
-    console.log('is admin');
   }
 
   isMember() {
     this.userAdmin = false;
-    console.log('is member');
   }
 
   verifyAccess() {
