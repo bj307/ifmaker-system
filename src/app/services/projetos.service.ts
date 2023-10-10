@@ -13,7 +13,7 @@ export class ProjetosService {
 
   public buscarMeusProjetos(id: string) {
 
-    return this.http.get(`${this.API}projeto/meus-projetos${id}`);
+    return this.http.get(`${this.API}projeto/meus-projetos/${id}`);
   }
 
   public buscarTodosProjetos() {}
