@@ -27,7 +27,7 @@ export class UserService {
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    return this.http.post(`${this.LOCAL}usuario/verify`, { headers });
+    return this.http.post(`${this.API}usuario/verify`, { headers });
   }
 
   public statusFrequencia(id: string) {
