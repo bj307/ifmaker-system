@@ -72,8 +72,8 @@ export class AdminComponent implements OnInit {
     if (sessao == null) {
       this.router.navigate(['/login']);
     } else {
-      const { jwtToken } = JSON.parse(sessao);
-      this.projetosService.buscarMeusProjetos(jwtToken).subscribe(
+      const { id } = JSON.parse(sessao);
+      this.projetosService.buscarMeusProjetos(id).subscribe(
         (res: any) => {
           const n = res.length;
           sessionStorage.setItem('projetos', n);
