@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IProjeto } from 'src/app/interfaces/IProjeto';
 import { IUsuario } from 'src/app/interfaces/IUsuario';
 import { ProjetosService } from 'src/app/services/projetos.service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./member.component.css'],
 })
 export class MemberComponent implements OnInit {
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService, private projetoService: ProjetosService) {}
 
   menuVisible = false;
   usuario: IUsuario = {
@@ -22,9 +23,11 @@ export class MemberComponent implements OnInit {
     status: '',
   };
 
+  projetos: IProjeto[] = [];
+
   ngOnInit(): void {
     this.lerDados();
-    
+    this.lerProjetos();
     this.validaToken();
     const sessao = sessionStorage.getItem('usuario_logado');
     const { nome } = JSON.parse(sessao!);
@@ -52,7 +55,6 @@ export class MemberComponent implements OnInit {
           this.usuario!.nome = res.nome;
           this.usuario!.email = res.email;
           this.usuario!.nivel_acesso = res.nivel_acesso;
-
           this.verifyAccess();
         },
         (err) => {
@@ -75,6 +77,27 @@ export class MemberComponent implements OnInit {
       this.usuario.status = status!;
       this.usuario.num_projetos = Number(projetos);
     }
+  }
+
+  lerProjetos() {
+    const sessao = sessionStorage.getItem('usuario_logado');
+    const { id } = JSON.parse(sessao!);
+    if (id === '') {
+      setTimeout(() => {
+        console.log('id offs');
+        this.lerProjetos();
+      }, 100)
+    } else {
+      this.projetoService.buscarMeusProjetos(id).subscribe((res: any) => {
+        res.map((projeto: IProjeto) => {
+          this.projetos.push(projeto);
+        });
+      })
+    }
+  }
+
+  verProjeto(projeto: IProjeto) {
+    console.log(projeto);
   }
 
   verifyAccess() {

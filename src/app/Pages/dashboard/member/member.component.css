@@ -13,9 +13,9 @@
 }
 
 @media (min-width: 720px) {
-  .cardProject {
+  /* .cardProject {
       min-width: calc(calc(100% / 2) - 10px);
-  }
+  } */
 }
 
 @media (max-width: 720px) {
@@ -113,4 +113,8 @@
 
 .btnProject p {
   font-size: 12px;
+}
+
+.btp:hover {
+  cursor: pointer;
 }
