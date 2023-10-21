@@ -11,7 +11,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./member.component.css'],
 })
 export class MemberComponent implements OnInit {
-  constructor(private router: Router, private userService: UserService, private projetoService: ProjetosService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private projetoService: ProjetosService
+  ) {}
 
   menuVisible = false;
   usuario: IUsuario = {
@@ -69,7 +73,7 @@ export class MemberComponent implements OnInit {
   lerDados() {
     const projetos = sessionStorage.getItem('projetos');
     const status = sessionStorage.getItem('status');
-    if(projetos == null || status == null) {
+    if (projetos == null || status == null) {
       setTimeout(() => {
         this.lerDados();
       }, 100);
@@ -84,15 +88,14 @@ export class MemberComponent implements OnInit {
     const { id } = JSON.parse(sessao!);
     if (id === '') {
       setTimeout(() => {
-        console.log('id offs');
         this.lerProjetos();
-      }, 100)
+      }, 100);
     } else {
       this.projetoService.buscarMeusProjetos(id).subscribe((res: any) => {
         res.map((projeto: IProjeto) => {
           this.projetos.push(projeto);
         });
-      })
+      });
     }
   }
 

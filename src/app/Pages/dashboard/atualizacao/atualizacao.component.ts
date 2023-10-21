@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IAtualizacao } from 'src/app/interfaces/IAtualizacao';
 import { IProjeto } from 'src/app/interfaces/IProjeto';
+import { AtualizacaoService } from 'src/app/services/atualizacao.service';
+import { ProjetosService } from 'src/app/services/projetos.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,12 +12,24 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./atualizacao.component.css'],
 })
 export class AtualizacaoComponent implements OnInit {
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private projetoService: ProjetosService,
+    private atualizacaoService: AtualizacaoService
+  ) {}
+
+  usuario = '';
+  projeto = '';
+  detalhes = '';
+
+  projetos: IProjeto[] = [];
 
   ngOnInit(): void {
     this.detalhes = '';
     this.projeto = '';
     this.validaToken();
+    this.lerProjetos();
   }
 
   validaToken() {
@@ -37,37 +51,37 @@ export class AtualizacaoComponent implements OnInit {
     }
   }
 
-  usuario = '';
-  projeto = '';
-  detalhes = '';
-
-  p1: IProjeto = {
-    id: '1',
-    nome: 'UI Design',
-    descricao: 'exemplo projeto de ensino',
-    tipo: 'Ensino',
-    usuarios: ['u1', 'u2'],
-    atualizacao: ['a1', 'a2'],
-  };
-
-  p2: IProjeto = {
-    id: '2',
-    nome: 'Arduino',
-    descricao: 'exemplo projeto de ensino',
-    tipo: 'Ensino',
-    usuarios: ['u1', 'u2'],
-    atualizacao: ['a1', 'a2'],
-  };
-
-  projetos: IProjeto[] = [this.p1, this.p2];
+  lerProjetos() {
+    const sessao = sessionStorage.getItem('usuario_logado');
+    const { id } = JSON.parse(sessao!);
+    if (id === '') {
+      setTimeout(() => {
+        this.lerProjetos();
+      }, 100);
+    } else {
+      this.projetoService.buscarMeusProjetos(id).subscribe((res: any) => {
+        res.map((projeto: IProjeto) => {
+          this.projetos.push(projeto);
+        });
+      });
+    }
+  }
 
   salvar() {
+    const sessao = sessionStorage.getItem('usuario_logado');
+    const { id, jwtToken } = JSON.parse(sessao!);
     const atualizacao: IAtualizacao = {
-      usuario: this.usuario,
+      usuario: id,
       projeto: this.projeto,
       detalhes: this.detalhes,
     };
 
     console.log(atualizacao);
+    this.atualizacaoService
+      .atualizar(atualizacao, jwtToken)
+      .subscribe((res) => {
+        console.log(res);
+      });
+    this.router.navigate(['']);
   }
 }

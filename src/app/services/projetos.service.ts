@@ -12,9 +12,10 @@ export class ProjetosService {
   private LOCAL = 'http://localhost:3000/';
 
   public buscarMeusProjetos(id: string) {
-
     return this.http.get(`${this.API}projeto/meus-projetos/${id}`);
   }
 
-  public buscarTodosProjetos() {}
+  public buscarTodosProjetos() {
+    return this.http.get(`${this.API}projeto/todos`);
+  }
 }

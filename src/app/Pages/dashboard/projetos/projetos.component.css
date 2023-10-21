@@ -47,6 +47,10 @@
   font-size: 12px;
 }
 
+.btp:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 720px) {
   .cardProject {
     min-width: calc(calc(100% / 2) - 10px);

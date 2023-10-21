@@ -3,66 +3,16 @@
     <h2>Projetos</h2>
   </div>
   <div class="container containerProjects">
-    <div class="card border-success mb-3 cardProject" style="max-width: 18rem;">
+    <div class="card border-success mb-3 cardProject" style="max-width: 18rem;" *ngFor="let projeto of projetos">
       <div class="card-body text-success">
-        <p class="card-text">Nome dos projeto aqui</p>
+        <p class="card-text">{{projeto.nome}}</p>
       </div>
-      <a href="">
+      <a (click)="verProjeto(projeto)" class="btp">
         <div class="btnProject">
           <p>Ver</p>
           <p>Projeto</p>
         </div>
       </a>
-
-    </div>
-
-    <div class="card border-success mb-3 cardProject" style="max-width: 18rem;">
-      <div class="card-body text-success">
-        <p class="card-text">Nome do projeto aqui</p>
-      </div>
-      <a href="">
-        <div class="btnProject">
-          <p>Ver</p>
-          <p>Projeto</p>
-        </div>
-      </a>
-
-    </div>
-    <div class="card border-success mb-3 cardProject" style="max-width: 18rem;">
-      <div class="card-body text-success">
-        <p class="card-text">Nome do projeto aqui</p>
-      </div>
-      <a href="">
-        <div class="btnProject">
-          <p>Ver</p>
-          <p>Projeto</p>
-        </div>
-      </a>
-
-    </div>
-    <div class="card border-success mb-3 cardProject" style="max-width: 18rem;">
-      <div class="card-body text-success">
-        <p class="card-text">Nome do projeto aqui</p>
-      </div>
-      <a href="">
-        <div class="btnProject">
-          <p>Ver</p>
-          <p>Projeto</p>
-        </div>
-      </a>
-
-    </div>
-    <div class="card border-success mb-3 cardProject" style="max-width: 18rem;">
-      <div class="card-body text-success">
-        <p class="card-text">Nome do projeto aqui</p>
-      </div>
-      <a href="">
-        <div class="btnProject">
-          <p>Ver</p>
-          <p>Projeto</p>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>
