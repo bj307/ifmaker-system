@@ -59,7 +59,6 @@ export class AdminComponent implements OnInit {
           this.verifyAccess();
         },
         (err) => {
-          console.log(err);
           sessionStorage.clear;
           this.router.navigate(['/login']);
         }
@@ -79,7 +78,6 @@ export class AdminComponent implements OnInit {
           sessionStorage.setItem('projetos', n);
         },
         (err) => {
-          console.log(err);
           sessionStorage.clear;
           this.router.navigate(['/login']);
         }

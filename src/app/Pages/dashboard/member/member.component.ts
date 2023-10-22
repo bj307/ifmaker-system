@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IAtualizacao } from 'src/app/interfaces/IAtualizacao';
 import { IProjeto } from 'src/app/interfaces/IProjeto';
 import { IUsuario } from 'src/app/interfaces/IUsuario';
+import { AtualizacaoService } from 'src/app/services/atualizacao.service';
 import { ProjetosService } from 'src/app/services/projetos.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +16,8 @@ export class MemberComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    private projetoService: ProjetosService
+    private projetoService: ProjetosService,
+    private atualizacoesService: AtualizacaoService
   ) {}
 
   menuVisible = false;
@@ -29,7 +32,20 @@ export class MemberComponent implements OnInit {
 
   projetos: IProjeto[] = [];
 
+  projetoView: IProjeto = {
+    id: '',
+    nome: '',
+    descricao: '',
+    tipo: '',
+    usuarios: [],
+    atualizacao: [],
+  };
+
+  atualizacoes: IAtualizacao[] = [];
+
   ngOnInit(): void {
+    this.projetos = [];
+    this.atualizacoes = [];
     this.lerDados();
     this.lerProjetos();
     this.validaToken();
@@ -59,10 +75,8 @@ export class MemberComponent implements OnInit {
           this.usuario!.nome = res.nome;
           this.usuario!.email = res.email;
           this.usuario!.nivel_acesso = res.nivel_acesso;
-          this.verifyAccess();
         },
         (err) => {
-          console.log(err);
           sessionStorage.clear;
           this.router.navigate(['/login']);
         }
@@ -99,25 +113,17 @@ export class MemberComponent implements OnInit {
     }
   }
 
+  lerAtualizacoes(id: string) {
+    this.atualizacoesService.buscarAtualizacoes(id).subscribe((res: any) => {
+      res.map((a: IAtualizacao) => {
+        this.atualizacoes.push(a);
+      });
+    });
+  }
+
   verProjeto(projeto: IProjeto) {
-    console.log(projeto);
-  }
-
-  verifyAccess() {
-    if (this.usuario.nivel_acesso === 'admin') {
-      this.isAdmin();
-    } else if (this.usuario.nivel_acesso === 'member') {
-      this.isMember();
-    } else {
-      this.router.navigate(['/login']);
-    }
-  }
-
-  isAdmin() {
-    console.log('is admin 2');
-  }
-
-  isMember() {
-    console.log('is member 2');
+    this.atualizacoes = [];
+    this.lerAtualizacoes(projeto.id);
+    this.projetoView = projeto;
   }
 }

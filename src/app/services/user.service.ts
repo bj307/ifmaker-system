@@ -20,17 +20,19 @@ export class UserService {
       codigo: cod,
     };
     console.log(registrar);
-    return this.http.post(`${this.API}ponto/registrar`, registrar, { headers });
+    return this.http.post(`${this.LOCAL}ponto/registrar`, registrar, {
+      headers,
+    });
   }
 
   public validarToken(token: string) {
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    return this.http.post(`${this.API}usuario/verify`, { headers });
+    return this.http.post(`${this.LOCAL}usuario/verify`, { headers });
   }
 
   public statusFrequencia(id: string) {
-    return this.http.get(`${this.API}ponto/status/${id}`);
+    return this.http.get(`${this.LOCAL}ponto/status/${id}`);
   }
 }

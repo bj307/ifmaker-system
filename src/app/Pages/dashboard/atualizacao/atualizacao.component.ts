@@ -43,7 +43,6 @@ export class AtualizacaoComponent implements OnInit {
           this.usuario = res.id;
         },
         (err) => {
-          console.log(err);
           sessionStorage.clear;
           this.router.navigate(['/login']);
         }
@@ -75,13 +74,6 @@ export class AtualizacaoComponent implements OnInit {
       projeto: this.projeto,
       detalhes: this.detalhes,
     };
-
-    console.log(atualizacao);
-    this.atualizacaoService
-      .atualizar(atualizacao, jwtToken)
-      .subscribe((res) => {
-        console.log(res);
-      });
-    this.router.navigate(['']);
+    this.atualizacaoService.atualizar(atualizacao, jwtToken).subscribe();
   }
 }

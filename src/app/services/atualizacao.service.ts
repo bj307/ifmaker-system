@@ -16,8 +16,12 @@ export class AtualizacaoService {
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    return this.http.post(`${this.API}atualizacao/inserir`, atualizacao, {
+    return this.http.post(`${this.LOCAL}atualizacao/inserir`, atualizacao, {
       headers,
     });
+  }
+
+  public buscarAtualizacoes(id: string) {
+    return this.http.get(`${this.LOCAL}atualizacao?id=${id}`);
   }
 }

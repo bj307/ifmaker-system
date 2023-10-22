@@ -34,7 +34,7 @@
       <div class="card-body text-success">
         <p class="card-text">{{projeto.nome}}</p>
       </div>
-      <a (click)="verProjeto(projeto)" class="btp">
+      <a (click)="verProjeto(projeto)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btp">
         <div class="btnProject">
           <p>Ver</p>
           <p>Projeto</p>
@@ -42,18 +42,39 @@
       </a>
 
     </div>
-
-    <!-- <div class="card border-success mb-3 cardProject" style="max-width: 18rem;">
-      <div class="card-body text-success">
-        <p class="card-text">Nome do projeto aqui</p>
-      </div>
-      <a href="">
-        <div class="btnProject">
-          <p>Ver</p>
-          <p>Projeto</p>
-        </div>
-      </a>
-
-    </div> -->
   </div>
 </section>
+
+
+<div class="modal modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">{{projetoView.nome}}</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3 style="font-size: 14px; color: black;"><strong>Detalhes</strong></h3>
+        {{projetoView.descricao}}
+        <div class="tabela">
+          <table class="table table-success table-striped" style="margin-top: 20px;">
+            <thead>
+              <tr>
+                <th scope="col">Atualizações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of atualizacoes">
+                <td>{{a.detalhes}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

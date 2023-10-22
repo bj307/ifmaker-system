@@ -7,7 +7,7 @@
       <li><a (click)="sair()"><mat-icon aria-hidden="false" fontIcon="logout"></mat-icon></a></li>
       <li *ngIf="userAdmin"><button class="btnMenuLi" routerLink="/in/gerar-token">Gerar Token</button></li>
       <li *ngIf="!userAdmin"><button class="btnMenuLi" routerLink="/in/frequencia">Frequência</button></li>
-      <li><button class="btnMenuLi" routerLink="/in/agenda">Agenda</button></li>
+      <!-- <li><button class="btnMenuLi" routerLink="/in/agenda">Agenda</button></li> -->
       <li><button class="btnMenuLi" routerLink="/in/atualizacoes">Atualizações</button></li>
       <li><button class="btnMenuLi" routerLink="/in/projetos">Projetos</button></li>
       <li><button class="btnMenuLi" routerLink="/in/dashboard">Início</button></li>
@@ -28,7 +28,7 @@
   <li><button class="btnMenuLi" routerLink="/in/dashboard">Início</button></li>
   <li><button class="btnMenuLi" routerLink="/in/projetos">Projetos</button></li>
   <li><button class="btnMenuLi" routerLink="/in/atualizacoes">Atualizações</button></li>
-  <li><button class="btnMenuLi" routerLink="/in/agenda">Agenda</button></li>
+  <!-- <li><button class="btnMenuLi" routerLink="/in/agenda">Agenda</button></li> -->
   <li *ngIf="!userAdmin"><button class="btnMenuLi" routerLink="/in/frequencia">Frequência</button></li>
   <li *ngIf="userAdmin"><button class="btnMenuLi" routerLink="/in/gerar-token">Gerar Token</button></li>
   <li><a (click)="sair()" style="display: flex; align-items: center; flex-direction: row; justify-content: center;"
